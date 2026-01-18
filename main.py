@@ -124,7 +124,7 @@ def mail(email: str,subject:str,main:str) -> dict:
                 server.starttls()
                 server.login(sender_email, sender_password)
                 server.send_message(msg)
-                return "sent successfull"
+                return "sent successfully"
     except smtplib.SMTPAuthenticationError:
             return "Failed to authenticate with the SMTP server. Check your email and password."
 
