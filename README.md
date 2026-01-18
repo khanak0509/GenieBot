@@ -212,7 +212,8 @@ Before running GenieBot, ensure you have:
 
 5. **Set up Firebase Admin credentials:**
    - Download your Firebase Admin SDK JSON file from Firebase Console
-   - Place it in the project root as `automate-genie-48cb3-firebase-adminsdk-fbsvc-04d9a2172d.json`
+   - Place it in the project root (e.g., `firebase-adminsdk.json`)
+   - Update the credential path in `main.py` to match your filename
 
 6. **Set up Google Cloud credentials:**
    - Download your Google Cloud credentials JSON file
@@ -256,7 +257,7 @@ Before running GenieBot, ensure you have:
 python main.py
 ```
 
-The FastAPI server will start on `http://0.0.0.0:8000`
+The FastAPI server will start on `http://localhost:8000`
 
 ### API Endpoints
 
@@ -322,8 +323,8 @@ GenieBot/
 ## 📱 API Documentation
 
 Once the backend is running, visit:
-- **Swagger UI**: `http://localhost:8000/docs`
-- **ReDoc**: `http://localhost:8000/redoc`
+- **Swagger UI**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- **ReDoc**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
 ## 🧪 Testing
 
