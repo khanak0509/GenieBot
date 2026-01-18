@@ -213,7 +213,7 @@ Before running GenieBot, ensure you have:
 5. **Set up Firebase Admin credentials:**
    - Download your Firebase Admin SDK JSON file from Firebase Console
    - Place it in the project root (e.g., `firebase-adminsdk.json`)
-   - Update the credential path in `main.py` to match your filename
+   - Update the credential path in `main.py` (line 16) - look for `credentials.Certificate("your-file.json")`
 
 6. **Set up Google Cloud credentials:**
    - Download your Google Cloud credentials JSON file
@@ -380,7 +380,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email khanak0509@gmail.com or open an issue in the GitHub repository.
+For support, please open an issue in the [GitHub repository](https://github.com/khanak0509/GenieBot/issues).
 
 ---
 
