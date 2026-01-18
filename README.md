@@ -213,7 +213,7 @@ Before running GenieBot, ensure you have:
 5. **Set up Firebase Admin credentials:**
    - Download your Firebase Admin SDK JSON file from Firebase Console
    - Place it in the project root (e.g., `firebase-adminsdk.json`)
-   - Update the credential path in `main.py` (line 16) - look for `credentials.Certificate("your-file.json")`
+   - Update the credential path in the Firebase initialization section of `main.py`
 
 6. **Set up Google Cloud credentials:**
    - Download your Google Cloud credentials JSON file
