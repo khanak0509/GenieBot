@@ -7,10 +7,11 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
 [![LangChain](https://img.shields.io/badge/LangChain-121212?style=for-the-badge)](https://langchain.com)
+[![LangGraph](https://img.shields.io/badge/LangGraph-FF6B6B?style=for-the-badge)](https://langchain-ai.github.io/langgraph/)
 
-**A powerful multifunctional AI assistant with cross-platform mobile app**
+**A powerful multifunctional AI assistant with cross-platform mobile app powered by LangGraph**
 
-[Features](#-key-features) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [Usage](#-usage) • [API](#-api-documentation) • [Contributing](#-contributing)
+[Features](#-key-features) • [Tech Stack](#-tech-stack) • [Architecture](#-architecture) • [Installation](#-installation) • [Usage](#-usage) • [API](#-api-documentation)
 
 </div>
 
@@ -18,7 +19,7 @@
 
 ## 📖 Overview
 
-GenieBot is a comprehensive AI-powered automation and productivity platform that combines a **Flutter mobile application** with a **FastAPI backend** powered by **LangChain** and **Google Generative AI**. It seamlessly integrates with various services including GitHub, Google Workspace, communication platforms, and information services to provide intelligent automation capabilities.
+GenieBot is a comprehensive AI-powered automation and productivity platform that combines a **Flutter mobile application** with a **FastAPI backend** orchestrated by **LangGraph** and powered by **LangChain** and **Google Generative AI**. It seamlessly integrates with various services including GitHub, Google Workspace, communication platforms, and information services to provide intelligent automation capabilities through advanced agentic workflows.
 
 ## 🌟 Key Features
 
@@ -99,6 +100,8 @@ GenieBot is a comprehensive AI-powered automation and productivity platform that
 
 ## 🏗 Architecture
 
+GenieBot uses a modern **agentic AI architecture** powered by **LangGraph**, which orchestrates complex multi-step workflows through a ReAct (Reasoning + Acting) agent pattern.
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                     Flutter Mobile App                      │
@@ -114,8 +117,12 @@ GenieBot is a comprehensive AI-powered automation and productivity platform that
 │                   FastAPI Backend Server                     │
 │                                                             │
 │  ┌─────────────────────────────────────────────────────┐   │
-│  │        LangGraph Agent Orchestrator                  │   │
-│  │  (Google Gemini 2.0 + ReAct Agent Pattern)         │   │
+│  │           LangGraph Agent Orchestrator               │   │
+│  │  • ReAct Agent Pattern (Reasoning + Acting)         │   │
+│  │  • State Management & Checkpointing                 │   │
+│  │  • Multi-step Workflow Execution                    │   │
+│  │  • Tool Calling & Response Handling                 │   │
+│  │  • Powered by Google Gemini 2.0 Flash              │   │
 │  └─────────────────────────────────────────────────────┘   │
 │                                                             │
 │  ┌──────────────┬──────────────┬──────────────────────┐   │
@@ -137,9 +144,18 @@ GenieBot is a comprehensive AI-powered automation and productivity platform that
           ▼                        ▼
   ┌───────────────┐        ┌──────────────┐
   │    SQLite     │        │   Firebase   │
-  │  (Checkpoint) │        │  Firestore   │
+  │  (LangGraph   │        │  Firestore   │
+  │  Checkpoint)  │        │ (User Data)  │
   └───────────────┘        └──────────────┘
 ```
+
+### Key Architecture Features:
+
+- **LangGraph Orchestration**: All agent interactions are managed through LangGraph's stateful workflow system, enabling complex multi-turn conversations with persistent state
+- **ReAct Pattern**: The agent uses Reasoning and Acting cycles to break down complex tasks into manageable steps
+- **Checkpointing**: SQLite-based checkpointing ensures conversation history and state persistence across sessions
+- **Tool Integration**: Seamless integration of 30+ tools through LangChain's toolkit system
+- **Async Processing**: FastAPI's async capabilities combined with LangGraph's streaming support for real-time responses
 
 ## 🛠 Prerequisites
 
@@ -338,21 +354,6 @@ pytest tests/
 flutter test
 ```
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Code Style
-- **Python**: Follow PEP 8 guidelines
-- **Dart/Flutter**: Follow official Dart style guide
-- Use meaningful variable names and add comments where necessary
-
 ## 🔒 Security
 
 - Never commit API keys or sensitive credentials
@@ -363,24 +364,6 @@ Contributions are welcome! Please follow these steps:
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**Khanak Khandelwal**
-- GitHub: [@khanak0509](https://github.com/khanak0509)
-- Institution: IIT Jodhpur
-
-## 🙏 Acknowledgments
-
-- Google Generative AI for Gemini models
-- LangChain and LangGraph teams
-- Flutter and Dart communities
-- Firebase team
-- All open-source contributors
-
-## 📞 Support
-
-For support, please open an issue in the [GitHub repository](https://github.com/khanak0509/GenieBot/issues).
 
 ---
 

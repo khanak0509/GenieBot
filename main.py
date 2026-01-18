@@ -1,12 +1,9 @@
 
 
-from fastapi import FastAPI, Request
-from fastapi.middleware.cors import CORSMiddleware
-import uvicorn
-from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import uvicorn
 import uuid
 
 
@@ -59,7 +56,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.output_parsers import StrOutputParser
 
 
-con = sqlite3.connect('chatbot.db',check_same_thread=False)
+con = sqlite3.connect('chatbot.db', check_same_thread=False)
 checkpointer = SqliteSaver(conn=con)
 
 
@@ -88,16 +85,6 @@ from langchain_google_community.calendar.utils import (
     build_resource_service,
     get_google_credentials,
 )
-
-
-# search = GoogleSerperAPIWrapper()
-# google_search = [
-#     Tool(
-#         name="Intermediate_Answer",
-#         func=search.run,
-#         description="useful for when you need to ask with search",
-#     )
-# ]
 
 
 os.environ["GOOGLE_API_KEY"] = os.getenv('GOOGLE_API_KEY')
@@ -140,7 +127,7 @@ def mail(email: str,subject:str,main:str) -> dict:
                 return "sent successfull"
     except smtplib.SMTPAuthenticationError:
             return "Failed to authenticate with the SMTP server. Check your email and password."
-import requests
+
 import requests
 import ast
 from langchain.prompts import PromptTemplate
@@ -332,10 +319,6 @@ def send_sms(to_number,msg):
         return f"Failed to send SMS: {str(e)}"
 
 
-# for tool in tools:
-#     print(tool.name)
-
-
 filter_list = [
     "Get Issue", "Comment on Issue", "List open pull requests (PRs)",
     "Get Pull Request", "Overview of files included in PR", "Create Pull Request",
@@ -391,11 +374,7 @@ print("Renamed tools:", [t.name for t in tools])
 
 config = {"configurable": {"thread_id": "1"}}
 
-agent_executor = create_react_agent(llm, tools,checkpointer= checkpointer,
-                                    
-                                    
-
-                                    )
+agent_executor = create_react_agent(llm, tools, checkpointer=checkpointer)
 
 
 
@@ -434,5 +413,3 @@ async def chat_endpoint(req: ChatRequest):
         return {"error": str(e)}
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-
-
